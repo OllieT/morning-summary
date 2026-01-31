@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Morning Futures News Summary – Static</title>
+  <style>
+    :root {
+      --bg: #f9fafb;
+      --card: #ffffff;
+      --text: #111827;
+      --text-light: #4b5563;
+      --primary: #1d4ed8;
+      --accent: #dc2626;
+      --highlight-bg: #fef3c7;
+      --highlight-text: #92400e;
+    }
+
+    [data-theme="dark"] {
+      --bg: #111827;
+      --card: #1f2937;
+      --text: #f3f4f6;
+      --text-light: #9ca3af;
+      --primary: #60a5fa;
+      --accent: #f87171;
+      --highlight-bg: #78350f;
+      --highlight-text: #fef3c7;
+    }
+
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body {
+      font-family: system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 1rem;
+      min-height: 100vh;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .container { max-width: 1000px; margin: 0 auto; }
+
+    header {
+      text-align: center;
+      margin: 1.5rem 0 2rem;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 6vw, 2.6rem);
+      color: var(--primary);
+      margin-bottom: 0.4rem;
+    }
+
+    .date { color: var(--text-light); font-size: 1.1rem; }
+
+    .controls {
+      text-align: center;
+      margin: 1rem 0 2rem;
+    }
+
+    button {
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      border: 1px solid var(--primary);
+      background: transparent;
+      color: var(--primary);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    button:hover { background: var(--primary); color: white; }
+
+    details {
+      background: var(--card);
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      margin-bottom: 1.4rem;
+      overflow: hidden;
+    }
+
+    summary {
+      padding: 1rem 1.4rem;
+      background: linear-gradient(to right, #eff6ff, #dbeafe);
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 1.2rem;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    [data-theme="dark"] summary { background: linear-gradient(to right, #1e40af, #1e3a8a); color: white; }
+
+    summary::-webkit-details-marker { display: none; }
+    summary::before { content: "▶ "; margin-right: 0.6rem; }
+    details[open] summary::before { content: "▼ "; }
+
+    .section-content {
+      padding: 1.3rem 1.5rem;
+    }
+
+    .item {
+      padding: 1rem 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    [data-theme="dark"] .item { border-bottom-color: #374151; }
+
+    .item:last-child { border-bottom: none; }
+
+    .time {
+      font-weight: 600;
+      min-width: 4.5rem;
+      display: inline-block;
+    }
+
+    .highlight {
+      background: var(--highlight-bg);
+      color: var(--highlight-text);
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .source { color: var(--primary); font-size: 0.95rem; margin: 0.3rem 0; }
+
+    .summary { color: var(--text-light); margin-top: 0.4rem; font-size: 0.98rem; }
+
+    .footer {
+      text-align: center;
+      margin: 3rem 1rem 2rem;
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    @media (min-width: 640px) {
+      body { padding: 2rem; }
+      .section-content { padding: 1.6rem 2rem; }
+    }
+  </style>
+</head>
+<body data-theme="light">
+
+<div class="container">
+  <header>
+    <h1>Morning Key Events & Market Movers</h1>
+    <div class="date">Saturday, January 31, 2026</div>
+  </header>
+
+  <div class="controls">
+    <button onclick="toggleTheme()">Toggle Dark Mode</button>
+  </div>
+
+  <details open>
+    <summary>Key Economic Events – Example / Manual Update</summary>
+    <div class="section-content">
+      <div class="item">
+        <div><span class="time">08:30</span> | US | Nonfarm Payrolls: <strong>Actual 248K</strong> <span class="highlight">MARKET-MOVING</span></div>
+        <div>Est: 190K • Prev: 180K (revised)</div>
+      </div>
+      <div class="item">
+        <div><span class="time">10:00</span> | US | ISM Services PMI: <strong>52.8</strong></div>
+        <div>Est: 54.0 • Prev: 54.1</div>
+      </div>
+      <div class="item">
+        <div><span class="time">14:00</span> | ECB | Interest Rate Decision: <strong>3.25%</strong> (unchanged)</div>
+        <div>Market expected hold</div>
+      </div>
+      <!-- Add more items manually here -->
+      <p style="margin-top:1.5rem; color:#6b7280; font-style:italic; text-align:center;">
+        ← Edit this file in any text editor and add today's real events
+      </p>
+    </div>
+  </details>
+
+  <details open>
+    <summary>Market News Headlines – Example</summary>
+    <div class="section-content">
+      <div class="item">
+        <div><span class="time">07:45</span> | <a href="https://example.com" target="_blank">Oil surges 3.8% after surprise OPEC+ cut extension</a> <span class="highlight">MARKET-MOVING</span></div>
+        <div class="source">Reuters / Bloomberg</div>
+        <div class="summary">WTI briefly touched $78.40 before pulling back slightly…</div>
+      </div>
+      <div class="item">
+        <div><span class="time">09:20</span> | <a href="https://example.com" target="_blank">USD/JPY plunges 180 pips on dovish Fed minutes leak</a> <span class="highlight">MARKET-MOVING</span></div>
+        <div class="source">Financial Times</div>
+        <div class="summary">Yen strength accelerates across G10 FX…</div>
+      </div>
+      <div class="item">
+        <div><span class="time">11:10</span> | <a href="https://example.com" target="_blank">Gold rallies to new record high above $2,940</a></div>
+        <div class="source">Kitco News</div>
+      </div>
+      <!-- Add more manually -->
+    </div>
+  </details>
+
+  <details>
+    <summary>Updates from Trusted Sources (X / Bloomberg / Reuters) – Example</summary>
+    <div class="section-content">
+      <div class="item">
+        <div><span class="time">06:55</span> | <a href="https://x.com/Reuters/status/..." target="_blank">@Reuters: Crude inventory draw larger than expected → oil +4%</a> <span class="highlight">MARKET-MOVING</span></div>
+      </div>
+      <div class="item">
+        <div><span class="time">10:40</span> | <a href="https://x.com/Bloomberg/status/..." target="_blank">@Bloomberg: S&P 500 futures +1.2% pre-market after strong jobs print</a></div>
+      </div>
+      <!-- Add more manually -->
+      <p style="margin-top:1rem; color:#6b7280; text-align:center; font-style:italic;">
+        Paste interesting X links / headlines here when you see them
+      </p>
+    </div>
+  </details>
+
+  <div class="footer">
+    Static version — no live data • Last manually updated: January 31, 2026<br>
+    Edit this .html file anytime • Reload page to see changes<br>
+    For news trading – always cross-check sources
+  </div>
+</div>
+
+<script>
+function toggleTheme() {
+  const body = document.body;
+  const current = body.getAttribute('data-theme');
+  body.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+}
+</script>
+
+</body>
+</html>
